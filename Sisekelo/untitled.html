@@ -1,0 +1,23 @@
+
+<section class="site-section">
+<div class="container">
+        <p style="color:red;">Short Courses</p>
+
+      <div class="row">
+ {% for course in courses %}
+  <article class="col-md-3 course-box-custom">
+     <img src="/{{ STATIC_ROOT}}/learnership_images/{{q.image.URL}}" width="120"/>
+    <p><b>{{ course.title }}</b></p>
+      {{ course.description |truncatewords:10}}
+      <p class="">Duration: {{ course.overview }}</p>
+   <p class="">{{ course.start_date}}</p>
+   <p class="">{{course.nfq_level}}
+    <p class="">Credits {{ course.credits}}</p>  
+     <span class="badge badge-primary px-2 py-1 mb-3" >       <a href="{% url 'post_new' %}" class="course_links" >Apply Now</a> </span>
+  </article>
+{% if forloop.counter|divisibleby:4 %}
+</div>
+<div class="row">
+{% endif %}
+  {% endfor %}
+</div>

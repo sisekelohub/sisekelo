@@ -1,0 +1,145 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="home-intro" id="home-intro">
+        <div class="container">
+
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <p>
+                        The fastest way to grow your career with the leader in Tech education
+                        <span><a href="{% url 'courses:learnerships' %}">View all our Learnership courses</a></span>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <div class="get-started text-left text-lg-right">
+                        <button type="button" class="btn btn-primary-subscribe" data-toggle="modal"
+                                data-target="#exampleModal" data-whatever="@mdo"><h4>Stay Informed</h4></button>
+                        <!--    <div class="learn-more">or <a href="index.html">learn more.</a></div>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section id="instructors" class="p-5 bg-primary-edit">
+        <div class="container" align="center">
+            <h2 class="text-center ">Upcoming Courses</h2>
+            <!-- <p class="lead text-center text-white mb-5">
+               You can apply for the latest courses
+             </p>-->
+
+            <div class="row-custom" align="center">
+
+                <div class="row" align="center">
+
+                    {% for q in query %}
+                        <div class="card course-box-custom-colored">
+                            <div class="card-body">
+                                <a href="{% url 'courses:learnership_detail' q.slug %}">
+                                    <img class="rounded-circle article-img mb-3 custom-circle-course-cards"
+                                         src="{{ q.image.url }}"></a>
+                                <p><b><a href="{% url 'courses:learnership_detail' q.slug %}">{{ q.title|capfirst }}</a></b>
+                                </p>
+                                <p class=""><b> {{ q.certificate_type }}</b></p>
+                                <p class=""><b>Duration:</b> {{ q.duration }}</p>
+                                <p class=""><b> Date: </b>{{ q.start_date | date:"F d, Y" }}</p>
+                                <p class=""><b>{{ q.nfq_level }} </b>
+                                <p class=""><b>Credits: </b> {{ q.credits }} | Mode: </b> {{ q.mode_of_delivery }}</p>
+                                <p class=""><b></p>
+                                <span class="badge badge-primary px-2 py-1 mb-3"> <a
+                                        href="{% url 'courses:learnership_detail' q.slug %}" class="course_links">Read More</a> </span>
+
+
+                            </div>
+                        </div>
+                        {% if forloop.counter|divisibleby:5 %}
+                            </div>
+                            <div class="row">
+                        {% endif %}
+                    {% endfor %}
+
+                    <!--<div class="row pagination-wrap">
+          <div class="col-md-6 text-center text-md-left">
+            <div class="custom-pagination ml-auto">
+              {% if query.has_previous %}
+              <a  href="?page={{ query.previous_page_number }}" class="prev">Previous</a>
+              {% endif %}
+              <div class="d-inline-block">
+                Page <a href="#" class="active">{{ query.number }}</a> of  {{ query.paginator.num_pages }}
+              </div>
+              {% if query.has_next %}
+              <a href="?page={{ query.next_page_number }}" class="next">Next</a>
+               {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </section>
+
+    <hr class="hr-custom">
+
+    <section id="instructors" class="p-5 bg-primary-edit">
+        <div class="container" align="center">
+            <h2 class="text-center ">Trending Specialized Programs</h2>
+            <!-- <p class="lead text-center text-white mb-5">
+               You can apply for the latest courses
+             </p>-->
+
+            <div class="row-custom" align="center">
+                {% for q in query %}
+                    <div class="card course-box-custom-colored">
+                        <div class="card-body">
+                            <a href="{% url 'courses:learnership_detail' q.slug %}">
+                                <img class="rounded-circle article-img mb-3 custom-circle-course-cards"
+                                     src="{{ q.image.url }}"></a>
+                            <p><b><a href="{% url 'courses:learnership_detail' q.slug %}">{{ q.title|capfirst }}</a></b>
+                            </p>
+                            <p class=""><b> {{ q.certificate_type }}</b></p>
+                            <p class=""><b>Duration:</b> {{ q.duration }}</p>
+                            <p class=""><b> Date: </b>{{ q.start_date | date:"F d, Y" }}</p>
+                            <p class=""><b>{{ q.nfq_level }} </b>
+                            <p class=""><b>Credits: </b> {{ q.credits }} | Mode: </b> {{ q.mode_of_delivery }}</p>
+                            <p class=""><b></p>
+                            <span class="badge badge-primary px-2 py-1 mb-3"> <a
+                                    href="{% url 'courses:learnership_detail' q.slug %}"
+                                    class="course_links">Read More</a> </span>
+
+
+                        </div>
+                    </div>
+
+
+                    {% if forloop.counter|divisibleby:5 %}
+                    {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+
+                    </div>
+                    <div class="row">
+                {% endif %}
+                {% endfor %}
+
+
+
+
+                <!-- <div class="row pagination-wrap">
+          <div class="col-md-6 text-center text-md-left">
+            <div class="custom-pagination ml-auto">
+              {% if query.has_previous %}
+              <a  href="?page={{ query.previous_page_number }}" class="prev">Previous</a>
+              {% endif %}
+              <div class="d-inline-block">
+                Page <a href="#" class="active">{{ query.number }}</a> of  {{ query.paginator.num_pages }}
+              </div>
+              {% if query.has_next %}
+              <a href="?page={{ query.next_page_number }}" class="next">Next</a>
+               {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>-->
+    </section>
+
+{% endblock %}

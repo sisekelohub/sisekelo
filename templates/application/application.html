@@ -1,0 +1,369 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+<section>
+	<div class="container">
+ <div class="mb-5" align="center" >
+             <h2>New Application</h2>
+    <form method="POST" class="post-form">{% csrf_token %}
+     
+        {{ form|crispy }}
+        <button type="submit" class="save btn btn-secondary">Save</button>
+    </form>
+        </div>
+
+       
+
+        {% for p in queryset %}
+  <article class="col-md-3-custom course-box-custom" align="center">
+      <img
+              src="https://randomuser.me/api/portraits/men/11.jpg"
+              class="rounded-square mb-3"
+              alt=""
+            />
+    <p><b>{{ p.title }}</b></p>
+     
+      <p class="">Duration: {{ p.duration }}</p>
+   <p class="">{{ p.start_date}}</p>
+   <p class="">{{p.nfq_level}}
+    <p class="">Credits {{ p.credits}}</p>
+     <span class="badge badge-primary px-2 py-1 mb-3" >       <a href="{% url 'post_new' %}" class="course_links" >Apply Now</a> </span>
+  </article>
+{% if forloop.counter|divisibleby:5 %}
+</div>
+<div class="row">
+{% endif %}
+  {% endfor %}
+</div>
+</section>
+
+
+{% endblock %}
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!------------------------------------------------------------------------------------------->
+        
+    
+    <!-- Flaticons  -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/fonts/flaticon/font/flaticon.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/style.css">
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/magnific-popup.css">
+
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/flexslider.css">
+
+    <!-- Owl Carousel -->
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://sisekelo.co.za/css/owl.theme.default.min.css">
+    
+<section>
+                <div id="colorlib-subscribe" style="background:#f6c72d !important">
+                <div class="overlay"></div>
+                
+                <div class="container">
+                <div class="row">
+                <div class="col-md-12 col-md-offset-0 colorlib-heading animate-box">
+                <h2>Get in touch with us</h2>
+                
+                <div class="row">
+                <div class="col-md-12">
+                <p>Please fill in the necessary details below, we will get back to you.</p>
+        
+                                        
+                          <!-- Button trigger Enquiry Form Modal -->
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#enquiryForm">
+                            Leave us a message
+                          </button>
+                    
+                    
+                    
+                               </div>
+                             </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>    
+        
+                          
+                      <!-- Download Brochure Modal -->
+                    <div class="modal fade" id="enquiryForm" tabindex="-1" role="dialog" aria-labelledby="enquiryFormeLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="enquiryFormLabel">Enquiry Form</h5>
+                         
+                        </div>
+                        <div class="modal-body">
+                                <h2>Talk TO US :) </h2>
+                                <form id="query-form" method="post" action="/enquiries">
+                                    <input type="hidden" name="_token" value="kFGDL6wQRogMmVSMRWq48zCK8Eayyohxn0NqVATP">                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="fullname" placeholder="Full Names" required>
+                                             </div>
+                                    <div class="form-group">
+                                        <input type="tel" class="form-control" name="phone" placeholder="Mobile Number" required>
+                                        </div>
+                                        <div class="form-group form-check">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                        </div>
+                                    
+                                        <div class="row form-group">
+                            <div class="col-md-12">
+                                <label for="message">Message</label>
+                                <textarea name="message" cols="30" rows="4" class="form-control" placeholder="Say something about us"></textarea>
+                            
+                                        <small id="emailHelp" class="form-text text-muted">We'll never share your information with any third party.</small>
+                        </div>
+                                        </div>
+                        
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        
+        <!--------------------------------------------------------------------------------------------------------------->
+
+
+
+    
+    <div id="colorlib-testimony" class="colorlib-light-white">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 animate-box colorlib-heading animate-box">
+                        <span class="sm">Clients</span>
+                        <h2><span class="thin">Our</span> <span class="thick">Clients</span></h2>
+                    </div>
+                    <div class="col-md-7 col-md-push-1">
+                        <div class="row animate-box text-center">
+                            <!--<img class="img-responsive" src="https://sisekelo.co.za/images/clients.png">-->
+                            <img class="img-responsive" src="https://www.sisekelo.co.za/images/clients.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+<!-- Download Brochure Modal -->
+<div class="modal fade" id="subscription" tabindex="-1" role="dialog" aria-labelledby="subscriptionLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="subscriptionLabel">Newsletter subscription</h5>
+                 
+                </div>
+                <div class="modal-body">
+                        <h2><strong>STAY UPDATED WITH OUR </strong>
+                            <br>NEWS LETTER. </h2>
+                        <form id="query-form" method="post" action="/subscribe">
+                            <input type="hidden" name="_token" value="kFGDL6wQRogMmVSMRWq48zCK8Eayyohxn0NqVATP">                                <div class="form-group">
+                                    <input type="text" class="form-control" name="fullname" placeholder="Full Names" >
+                                     </div>
+                               
+                                <div class="form-group form-check">
+                                <input type="email" class="form-control" name="email" placeholder="Email" >
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your information with any third party.</small>
+                                </div>
+                
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        
+        
+        <footer id="colorlib-footer" role="contentinfo">
+            <div class="row row-pb-md">
+                <div class="col-md-12 colorlib-widget">
+                    <center><a href="https://sacoronavirus.co.za/" target="_blank"><img class="img-responsive" src="https://www.sisekelo.co.za/images/covid.png"></a></center>
+                </div>
+            </div>
+            <div class="container">
+                    <div class="row row-pb-md">
+                            <div class="col-md-3 colorlib-widget">
+                                <h4>About Company</h4>
+                                <p>Sisekelo Sustainability Institute (Sisekelo) is a dynamic 
+                                        business consulting, training and research & development 
+                                        company. </p>
+                                <p>
+                                    <ul class="colorlib-social-icons">
+                                        <li><a href="https://twitter.com/Sisekelo_za"><i class="icon-twitter"></i></a></li>
+                                        <li><a href="https://www.facebook.com/sisekelo.co.za/"><i class="icon-facebook"></i></a></li>
+                                        <li><a href="https://www.linkedin.com/company/sisekelo/"><i class="icon-linkedin"></i></a></li>
+                                        <li><a href="https://www.instagram.com/sisekelo.co.za/"><i class="icon-instagram"></i></a></li>
+                                    </ul>
+                                </p>
+                            </div>
+                            <div class="col-md-3 col-md-push-1">
+                                <h4><font color="#FFFFFF">Quick Links</font></h4>
+                                <ul class="colorlib-footer-links">
+                                    <li><a href="https://www.sisekelo.co.za/about/profile">Our Profile</a></li>
+                                    <li><a href="https://www.sisekelo.co.za/about/partners">Our Partners</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-md-push-1 colorlib-widget">
+                                <h4>Programmes</h4>
+                                <p>
+                                    <ul class="colorlib-footer-links">
+
+                                            <!--<li><a href="https://sisekelo.co.za/learnership"><i class="icon-check"></i>Learnerships</a></li>-->
+                                            <li><a href="https://sisekelo.co.za/short/courses/Learnership"><i class="icon-check"></i> Learnerships</a></li>
+                                    <li><a href="https://sisekelo.co.za/short/courses/short"><i class="icon-check"></i> On-site short courses</a></li>
+                                        <li><a href="https://sisekelo.co.za/short/courses/digital"><i class="icon-check"></i> Digital short courses</a></li>
+                                        <li><a href="https://sisekelo.co.za/seta-calculator"><i class="icon-check"></i> Seta Calculator</a></li>
+                                    </ul>
+                                </p>
+                            </div>
+        
+                            <div class="col-md-3 col-md-push-1">
+                                <h4>Contact Info</h4>
+                                <ul class="colorlib-footer-links">
+                                    <li><a href="#"><i class="icon-location4"></i></a> 6C2 Sinosteel Plaza<br> 159 Rivonia Road Morningside Ext 39, Sandton</li>
+                                    <li><a href="tel://011 666 6000"><i class="icon-phone"></i> 011 666 6000</a></li>
+                                    <li><a href="mailto:info@sisekelo.co.za"><i class="icon-envelope"></i> info@sisekelo.co.za</a></li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <small class="block">Copyright &copy; <script>document.write(new Date().getFullYear());</script> All rights reserved.  Developed  by <a href="https://consleyinnovations.co.za" target="_blank">Consley Innovations</a></small>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="col-form-label">Recipient:</label>
+            <input type="text" class="form-control" id="recipient-name">
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+    </div>
+    
+    <!-- jQuery -->
+    <script src="https://sisekelo.co.za/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="https://sisekelo.co.za/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://sisekelo.co.za/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="https://sisekelo.co.za/js/jquery.waypoints.min.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="https://sisekelo.co.za/js/jquery.stellar.min.js"></script>
+    <!-- Flexslider -->
+    <script src="https://sisekelo.co.za/js/jquery.flexslider-min.js"></script>
+    <!-- Owl carousel -->
+    <script src="https://sisekelo.co.za/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="https://sisekelo.co.za/js/jquery.magnific-popup.min.js"></script>
+    <script src="https://sisekelo.co.za/js/magnific-popup-options.js"></script>
+    <!-- Counters -->
+    <script src="https://sisekelo.co.za/js/jquery.countTo.js"></script>
+    <!-- Main -->
+    <script src="https://sisekelo.co.za/js/main.js"></script>
+
+
+    <script type="text/javascript">
+    $('.check').hide();
+    $('.disability').hide();
+     function toggle(className, obj) {
+        
+    if (obj.checked) 
+    $(className).show();
+    else 
+    $(className).hide();
+    }
+
+
+    </script>

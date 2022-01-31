@@ -1,0 +1,374 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Sikelelo</title>
+        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css?h=78fc49e7d767d05ab2402bbffd54bf27">
+        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css?h=18313f04cea0e078412a028c5361bd4e">
+        <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css?h=18313f04cea0e078412a028c5361bd4e">
+        <link rel="stylesheet" href="assets/css/styles.min.css?h=9032f2dedde532e76e6f68d52a6c5dba">
+
+        <style>
+            .jumbotronus {
+                background: url("https://www.sisekelo.co.za/images/digital/Artificial-Intelligence.jpg") center center / cover no-repeat;
+            }
+        </style>
+    </head>
+
+    <body>
+    <div class="jumbotron">
+        <h1 class="text-center"
+            style="font-size: 50px;color: rgb(244,244,244);padding-top: 10px;font-family: Inter;">{{ course.title|capfirst }}</h1>
+        <p class="text-center"
+           style="font-size: 20px;padding: 0px;padding-top: 46px;color: rgb(255,255,255);padding-right: 0px;margin-right: 0px;padding-bottom: 8px;font-family: Inter;">{{ course.description | truncatewords:50 }}"<br>
+        </p>
+        <p class="text-center"
+           style="font-size: 20px;padding: 0px;padding-top: 46px;color: rgb(255,255,255);padding-right: 0px;margin-right: 0px;padding-bottom: 8px;margin-top: -20px;">
+            - Sisekelo</p>
+    </div>
+    <div>
+        <div class="container">
+            <h1 class="text-left"
+                style="margin-top: 0px;margin-bottom: 0px;padding-top: 20px;font-family: Inter;">{{ course.program_type }} | {{ course.certificate_type }}</h1>
+            <hr style="border-width: 2px;border-color: orange;margin-top: 25px;border-bottom-style: solid;border-top-style: solid;height: auto;border-bottom-width: 0;flex-grow: 2;box-sizing: border-box;display: block;">
+        </div>
+        <div class="container">
+            <p style="line-height: 1.7rem;font-family: Montserrat; padding-top: 8px;">{{ course.description }}<br></p>
+        </div>
+    </div>
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+
+                        <div class="col-md-12"><img src="{{ course.image.url }}" padding-top: 8px;
+                                                    style="width: 358px;"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row">
+                                <br>
+                                <p>
+                                <div class="col"><a href="{% url 'post_new' %}" class="course_links">Enroll With Us</a>
+                                </div>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <!-- Accordion wrapper -->
+                            <div class="accordion md-accordion" id="accordionEx1" role="tablist"
+                                 aria-multiselectable="true">
+
+                                <!-- Accordion card -->
+                                <div class="card grey lighten-2"
+                                     style="padding-left: 10px; margin-bottom:6px; margin-right:-50px;  border-radius:0.5rem">
+
+                                    <!-- Card header -->
+                                    <div class="card-header" role="tab" id="headingTwo1">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1"
+                                           href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1">
+                                            <h5 class="mb-0 text-dark"><i class="fas fa-angle-down rotate-icon"></i>
+                                                Expectations?
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseTwo1" class="collapse " role="tabpanel"
+                                         aria-labelledby="headingTwo1" data-parent="#accordionEx1">
+                                        <div class="card-body text-dark">
+                                            {{ course.expectations }}</div>
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Accordion card -->
+
+                                <!-- Accordion card -->
+                                <div class="card grey lighten-2"
+                                     style="padding: 2px; margin-bottom:6px; margin-right:-50px; border-radius:0.5rem">
+
+                                    <!-- Card header -->
+                                    <div class="card-header " role="tab" id="headingTwo2">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1"
+                                           href="#collapseTwo21" aria-expanded="false" aria-controls="collapseTwo21">
+                                            <h5 class="mb-0 text-dark"><i class="fas fa-angle-down rotate-icon"></i>
+                                                Modules
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseTwo21" class="collapse " role="tabpanel"
+                                         aria-labelledby="headingTwo21" data-parent="#accordionEx1">
+                                        <div class="card-body text-dark">
+                                            {{ course.modules }}
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Accordion card -->
+
+                                <!-- Accordion card -->
+                                <div class="card grey lighten-2"
+                                     style="padding: 2px; margin-bottom:6px;margin-right:-50px; border-radius:0.5rem">
+
+                                    <!-- Card header -->
+                                    <div class="card-header " role="tab" id="headingThree31">
+                                        <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1"
+                                           href="#collapseThree31" aria-expanded="false"
+                                           aria-controls="collapseThree31">
+                                            <h5 class="mb-0 text-dark"><i class="fas fa-angle-down rotate-icon"></i>
+                                                Career Prospects
+                                            </h5>
+                                        </a>
+                                    </div>
+
+                                    <!-- Card body -->
+                                    <div id="collapseThree31" class="collapse " role="tabpanel"
+                                         aria-labelledby="headingThree31" data-parent="#accordionEx1">
+                                        <div class="card-body text-dark">
+                                            You will become an Artificial Intelligence Engineer
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-- Accordion card -->
+
+                            </div>
+                            <!-- Accordion wrapper -->
+
+                        </div>
+                    </div>
+                    <div class="row" style="font-family: Roboto;font-size: 12px;margin-top: 12px;">
+                        <div class="col-md-12">
+                            <p>DURATION:&nbsp;<strong>{{ course.duration }}</strong><br></p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>START DATE:&nbsp;<strong>{{ course.start_date }}</strong><br></p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>CREDIT:&nbsp;<strong>{{ course.credit }}</strong><br></p>
+                        </div>
+                        <div class="col-md-12">
+                            <p>PRICE:&nbsp;<strong>{{ course.credit }}</strong><br></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 45px;">
+        <h1 class="text-left" style="margin-top: 0px;margin-bottom: 0px;padding-top: 20px;font-family: Inter;">Enquire
+            Now</h1>
+        <hr style="border-width: 2px;border-color: orange;margin-top: 25px;border-bottom-style: solid;border-top-style: solid;height: auto;border-bottom-width: 0;flex-grow: 2;box-sizing: border-box;display: block;">
+        <div class="container">
+            <div class="intro"></div>
+            <div class="container c1">
+
+
+                <div class="container">
+
+
+                    <div class="c2">
+
+
+                        <div></div>
+
+
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="c3">
+
+
+                        <div>
+
+                            <form method="post" enctype="multipart/form-data" action="" novalidate="">
+
+                                <input type="hidden" value="">
+
+                                <div>
+
+                                    <div>
+
+                                        <fieldset>
+                                            <legend>Name
+
+                                                <span>
+
+                                    <span>(Required)</span>
+
+                                </span>
+
+                                            </legend>
+
+                                            <div>
+                            
+                            <span>
+                              <label for="">First</label>
+                                        <input type="text" value="" aria-required="true">
+                                                  
+                                                </span>
+
+                                                <span><label for="input_1_1_6">Last</label>
+                                                    <input type="text" name="input_1.6" id="input_1_1_6" value=""
+                                                           aria-required="true">
+
+                                                    
+                                                </span>
+
+                                            </div>
+
+                                        </fieldset>
+
+                                        <div id="field_1_2">
+
+                                            <label for="input_1_2">Contact number
+
+                                                <span>
+
+                                <span>(Required)</span>
+
+                            </span></label>
+
+                                            <div>
+
+                                                <input type="text" name="input_1.6" id="input_1_1_6" value=""
+                                                       aria-required="true"></div>
+
+                                        </div>
+
+                                        <div id="field_1_3" class="">
+
+                                            <label for="input_1_3">Email
+
+                                                <span>
+
+                                        <span>(Required)</span>
+
+                                    </span></label>
+
+                                            <div>
+
+                                                <input name="input_3" id="input_1_3" type="email" value="" class="large"
+                                                       aria-required="true" aria-invalid="false">
+
+
+                                            </div>
+
+                                        </div>
+                                        <div id="field_1_5"><label for="input_1_5">List any previous courses or degrees
+                                            you have completed<span><span>(Required)</span>
+
+                    </span>
+
+                                        </label>
+
+                                            <div><input name="input_5" id="input_1_5" type="text" value="" class="large"
+                                                        aria-required="true" aria-invalid="false">
+
+                                            </div>
+                                        </div>
+
+                                        <div id="field_1_7">
+
+                                            <label for="input_1_7">Programme of interest<span>
+
+                    <span>(Required)</span>
+
+                </span></label>
+
+                                            <div>
+
+                                                <div>
+
+                                                    <select class="selected" name="input_7" id="input_1_7"
+                                                            aria-required="true" aria-invalid="false">
+
+                                                        <option value="Doctorate of Business Management">Doctorate of
+                                                            Business Management
+                                                        </option>
+                                                        <option value="Master of Business Administration">Master of
+                                                            Business Administration
+                                                        </option>
+                                                        <option value="Postgraduate Diploma in Business Management">
+                                                            Postgraduate Diploma in Business Management
+                                                        </option>
+                                                        <option value="Master of Public Management">Master of Public
+                                                            Management
+                                                        </option>
+                                                        <option value="Postgraduate Diploma in Public Management">
+                                                            Postgraduate Diploma in Public Management
+                                                        </option>
+                                                        <option value="Bachelor of Business Administration">Bachelor of
+                                                            Business Administration
+                                                        </option>
+                                                        <option value="Bachelor of Business Administration (Retail)">
+                                                            Bachelor of Business Administration (Retail)
+                                                        </option>
+                                                        <option value="Bachelor of Business Administration (Banking)">
+                                                            Bachelor of Business Administration (Banking)
+                                                        </option>
+                                                        <option value="Higher Certificate in Business Management">Higher
+                                                            Certificate in Business Management
+                                                        </option>
+                                                        <option value="Higher Certificate in Business Management: Retail">
+                                                            Higher Certificate in Business Management: Retail
+                                                        </option>
+                                                        <option value="Higher Certificate in Business Management: Credit Banking">
+                                                            Higher Certificate in Business Management: Credit Banking
+                                                        </option>
+                                                        <option value="Master of Public Management">Master of Public
+                                                            Management
+                                                        </option>
+                                                        <option value="Higher Certificate in Public Management">Higher
+                                                            Certificate in Public Management
+                                                        </option>
+                                                        <option value="National Diploma in Public Administration">
+                                                            National Diploma in Public Administration
+                                                        </option>
+                                                        <option value="Bachelor of Accounting Science">Bachelor of
+                                                            Accounting Science
+                                                        </option>
+
+                                                    </select>
+
+                                                    <div class="arrow">
+
+                                                        <i class="glyphicon glyphicon-arrow-down"> </i>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/jquery.min.js?h=83e266cb1712b47c265f77a8f9e18451"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js?h=e46528792882c54882f660b60936a0fc"></script>
+    <script src="assets/js/script.min.js?h=cff910a810e90956e2f5b79da0aaa218"></script>
+    </body>
+
+    </html>
+
+{% endblock %}

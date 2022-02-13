@@ -46,23 +46,20 @@
             <div class="col-sm-10 col-xl-8 m-auto">
               <!-- Title -->
               <span class="mb-0 fs-1">👋</span>
-              <h2">Login into Sisekelo!</h2>
+              <h2>Login into Sisekelo!</h2>
     
 
               <!-- Form START -->
-              <form>
+
                 <!-- Email -->
                 <div class="mb-4">
                   
-                  <form method="post">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit" class="btn btn-primary mb-0">Log In</button>
+                 <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" value="Login">
+                    </form>
 
-                
-
-
-                  </form>
                   <br>
                   <br>
 
@@ -71,7 +68,7 @@
                       <u>Forgot password?</u>
                     </a>
                     <p>
-                     <span>Don't have an account? <a href="{% url 'accounts:register' %}">Signup here</a></span>
+                     <span>Don't have an account? <a href="{% url 'accounts:signup' %}">Signup here</a></span>
                    </p>
                   </div>
 

@@ -40,18 +40,41 @@
                             <h2>Sign up for your account!</h2>
                             <p class="lead mb-4"></p>
                         
-                            <!-- Form START -->
+                                 <h2>Sign up</h2>
+                                  <form method="post">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                      <p>
+                                        {{ field.label_tag }}<br>
+                                        {{ field }}
+                                        {% if field.help_text %}
+                                          <small style="color: grey">{{ field.help_text }}</small>
+                                        {% endif %}
+                                        {% for error in field.errors %}
+                                          <p style="color: red">{{ error }}</p>
+                                        {% endfor %}
+                                      </p>
+                                    {% endfor %}
+                                    <button type="submit">Sign up</button>
+                                  </form>
+
+
+
+
+
+
+                            <!-- Form START 
                             <form>
-                                <!-- Email -->
+                               Email 
                                   {% csrf_token %}
                                     {{ form.as_p }}
-                                <!-- Confirm Password -->
+                                Confirm Password 
                                
                                 <button type="submit" class="btn btn-primary mb-0">Sign Up</button>
-                                <!-- Check box -->
+                                Check box 
                                 
                             </form>
-                            <!-- Form END -->
+                          Form END -->
 
                             <!-- Social buttons -->
                             <div class="row">

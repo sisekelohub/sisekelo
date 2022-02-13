@@ -114,10 +114,11 @@
                                                         class="fa fa-user text-4 text-color-primary"
                                                         style="top: 0;"></i> Hi {{ user.username }}!</a>
                                                 <a href="{% url 'logout' %}">Log Out</a>
+                                                <a href="{% url 'dashboard' %}">Dashboard</a>
                                             {% else %}
 
                                                 <a href="{% url 'login' %}">Log In</a> |
-                                                <a href="{% url 'accounts:register' %}">Register</a>
+                                               
 
                                             {% endif %}
                                         </li>

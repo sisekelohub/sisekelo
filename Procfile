@@ -1,1 +1,1 @@
-web: gunicorn sisekelo.wsgi
+web: gunicorn Sisekelo.wsgi

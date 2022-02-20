@@ -1,1 +1,1 @@
-web: gunicorn Sisekelo.wsgi
+web: gunicorn --chdir sonata --log-file - Sisekelo.wsgi

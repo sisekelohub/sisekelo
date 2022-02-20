@@ -26,7 +26,12 @@ urlpatterns = [
     path('account/', include('accounts.urls')),
     path('contact/', include('contact.urls')),
     path('course-apis/', include(router.urls)),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
+    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
+
+    path('account_activation_sent/', core_views.account_activation_sent, name='account_activation_sent'),
+
+    path('activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/',
+        core_views.activate, name='activate'),
  
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -1,0 +1,61 @@
+
+
+ {% extends 'base/base.html' %}
+<!-- Plugins CSS -->
+  <link rel="stylesheet" type="text/css" href="https://eduport.webestica.com/assets/vendor/font-awesome/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://eduport.webestica.com/assets/vendor/bootstrap-icons/bootstrap-icons.css">
+
+  <!-- Theme CSS -->
+  <link id="style-switch" rel="stylesheet" type="text/css" href="https://eduport.webestica.com/assets/css/style.css">
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+
+<main>
+  <section class="p-0 d-flex align-items-center position-relative overflow-hidden">
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left -->
+        <div class="col-12 col-lg-6 d-md-flex align-items-center justify-content-center bg-primary bg-opacity-10 vh-lg-100">
+          <div class="p-3 p-lg-5">
+            <!-- Title -->
+
+{% autoescape off %}
+Hi {{ user.username }},
+
+Please click on the link below to confirm your registration:
+
+http://{{ domain }}{% url 'accounts:activate' uidb64=uid token=token %}
+{% endautoescape %}
+                  </div>
+
+                  </div>
+
+                </div>
+                <!-- Check box -->
+                <div class="mb-4 d-flex justify-content-between mb-4">
+
+
+                </div>
+                <!-- Button -->
+
+              </form>
+              <!-- Form END -->
+
+
+               -->
+              <div class="mt-4 text-center">
+
+              </div>
+            </div>
+          </div> <!-- Row END -->
+        </div>
+      </div> <!-- Row END -->
+    </div>
+  </section>
+</main>
+
+
+{% endblock %}

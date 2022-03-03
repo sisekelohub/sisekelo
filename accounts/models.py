@@ -32,6 +32,7 @@ class Profile(models.Model):
     city     = models.CharField(max_length=50, null=True, blank=True)
     email_confirmed = models.BooleanField(default=False)
 
+
 @receiver(post_save, sender=User)
 def update_user_profile(sender, instance, created, **kwargs):
     if created:
